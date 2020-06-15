@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +14,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.displayHorizontally {
+  display: flex;
+  flex-direction: row;
+}
+
+.displayVertically {
+  display: flex;
+  flex-direction: column;
+}
+
+.sAround {
+  justify-content: space-around;
+}
+
+.sBetween {
+  justify-content: space-between;
+}
+
+.sEvenly {
+  justify-content: space-evenly;
+}
+
+.test {
+  border: 2px solid black;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.width90 {
+  width: 90%;
+}
+
+.width80 {
+  width: 80%;
+}
+
+.centerSelf {
+  align-self: center;
+}
+

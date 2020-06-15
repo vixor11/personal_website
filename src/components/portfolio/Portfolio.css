@@ -1,0 +1,32 @@
+.portfolio-largeHello {
+    font-size: 200px;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Oswald';
+  }
+  
+.portfolio-subheader {
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 30px;
+}
+
+.portfolio-grid {
+  align-self: center;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 0px;
+  padding: 10px;
+}
+
+.portfolio-grid > div {
+  text-align: center;
+  padding: 15px 0px 15px 0px;
+}
+
+@media only screen and (max-width: 850px) {
+  .portfolio-grid {
+    grid-template-columns: auto;
+  }
+}
+

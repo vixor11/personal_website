@@ -1,0 +1,21 @@
+.mainTextAbout {
+    margin: auto;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 1em
+}
+
+.mainTextAbout > * {
+    margin-bottom: .7em;
+    font-family: 'Lato', serif;
+}
+
+.bullets  {
+    padding-left: .9em;
+}
+
+h3 {
+    font-weight: 100;
+}
