@@ -1,6 +1,8 @@
 import React from 'react';
 import './About.css';
 import '../../index.css';
+import resume from '../../images/resume.pdf';
+import starupIdeas from '../../images/startupIdeas.pdf';
 // don't forget the styles
 import '@animated-burgers/burger-slip/dist/styles.css' 
 
@@ -30,10 +32,10 @@ class About extends React.Component {
               <strong>Stanford Classes</strong>
               <br/>
               I’m currently a rising sophomore at Stanford about to declare a major in Computer Science. 
-              Some fun classes I’ve taken over the past year include <em>CS182: Ethics, Public Policy, and Technological Change, </em> 
-              a class on how to, as a technologically propense individual, build technologies with sound ethical frameworks, 
-              <em> CS103: Mathematical Foundations of Computing</em> a class on the mathematical underpinnings of computer science, 
-              from formal logic, to turing machines, complexity theory, and beyond, and <em>ESF: Discovery of the Self and its Possibilities</em>, 
+              Some fun classes I’ve taken over the past year include <a href="https://web.stanford.edu/class/cs182/" target="_blank" rel="noopener noreferrer">CS182: Ethics, Public Policy, and Technological Change</a>,
+              a class on how to, as a technologically propense individual, build technologies with sound ethical frameworks, <a href="http://web.stanford.edu/class/cs103/" target="_blank" rel="noopener noreferrer">CS103: Mathematical Foundations of Computing</a>
+              , a class on the mathematical underpinnings of computer science, 
+              from formal logic, to turing machines, complexity theory, and beyond, and <a href="https://undergrad.stanford.edu/programs/special-focus-programs/esf/about-education-self-fashioning-program" target="_blank" rel="noopener noreferrer">ESF: Discovery of the Self and its Possibilities</a>, 
               a literature-based philosophy course centered around the notion of selfhood and appreciating one’s capacities as agents capable of 
               meaningfully influencing oneself and others. 
             </div>
@@ -68,12 +70,12 @@ class About extends React.Component {
               Upon what I believe is the impending government transition in my home country, 
               Venezuela, I intend to go back and leverage my education and connections made at Stanford to 
               bring about transformative social and economic change via the development of currently non-existent 
-              technological services and infrastructure. Feel free to take a look at <strong>this document</strong> that has some 
+              technological services and infrastructure. Feel free to take a look at <strong><a className="noUnderline" href={starupIdeas} target="_blank" rel="noopener noreferrer">this document</a></strong> that has some 
               startup ideas/problem statements I’ve come up with over the years to get a feel for the type of 
               things I’d like to be working on in the near future.
               <br/>
               <br/>
-              Feel free to <strong>download my resume</strong> or reach out to me at <strong>victorcc@stanford.edu</strong>.
+              Feel free to <strong><a className="noUnderline" href={resume} target="_blank" rel="noopener noreferrer">download my resume</a></strong> or reach out to me at <strong><a className="noUnderline" href="mailto:victorcc@stanford.edu">victorcc@stanford.edu</a></strong>.
             </div>
           </div>
           
