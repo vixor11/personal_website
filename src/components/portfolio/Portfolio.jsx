@@ -25,7 +25,7 @@ class Portfolio extends React.Component {
           <div >
             <GridElement 
               image={photoShare} 
-              url="https://www.youtube.com/watch?v=nJYIzDxvJLA&feature=youtu.be"
+              url="nJYIzDxvJLA"
               title={"Photo Share: React Photo Sharing App"}
               date={"May 2020. "}
               description={"This was my final project for a class I took my freshman spring, CS142. Styling was done using React Material UI components and the back-end was done by creating a REST API using Node, Express, and MongoDB (with Mongoose Schema)."}
@@ -34,7 +34,7 @@ class Portfolio extends React.Component {
           <div >
             <GridElement 
               image={genericSocialMedia} 
-              url="https://youtu.be/SOBMdVRhwGo"
+              url="SOBMdVRhwGo"
               title={"Generic Social Media: vanillaJS Twitter Knockoff"}
               date={"April 2020. "}
               description={"Project for a class I took my freshman spring, CS193x. Used Node/Express/MongoDB to create a REST API for the backend, and raw CSS/HTML/vanillaJS for the frontend."}
@@ -43,7 +43,7 @@ class Portfolio extends React.Component {
           <div>
             <GridElement 
               image={tabTab} 
-              url="https://youtu.be/Hbj1wDQZoKY"
+              url="Hbj1wDQZoKY"
               title={"TabTab: Share More, Pay Less"}
               date={"March/April 2020. "}
               description={"Splitting recurring payments is a pain. Tabtab enables anyone to safely split the cost of subscription services, rent, and more. Built this with my two quarantine buddies: Santiago Hernandez and Tomas Cortes"}

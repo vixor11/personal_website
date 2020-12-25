@@ -1,9 +1,11 @@
 import React from 'react';
 import './gridElement.css';
 import '../../index.css';
-import ReactPlayer from 'react-player'
-import { Button, Backdrop, Modal, Fade, Zoom } from '@material-ui/core';
+import Youtube from 'react-youtube'
+import { Button, Backdrop, Modal, Fade } from '@material-ui/core';
 
+// https://www.youtube.com/watch?v=SOBMdVRhwGo
+// https://youtu.be/
 import '@animated-burgers/burger-slip/dist/styles.css' 
 
 class GridElement extends React.Component {
@@ -16,8 +18,8 @@ class GridElement extends React.Component {
 
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleOpenModal = this.handleOpenModal.bind(this);
-
   }
+
 
   handleOpenModal = () => {
     if (this.props.url){
@@ -30,6 +32,16 @@ class GridElement extends React.Component {
   }
 
   render() {
+
+    const opts = {
+      height: '390',
+      width: '640',
+      playerVars: {
+        // https://developers.google.com/youtube/player_parameters
+        autoplay: 1,
+      },
+    };
+
     return (
         <div class="content test">
             <Button onClick={this.handleOpenModal}>
@@ -61,7 +73,10 @@ class GridElement extends React.Component {
             >
                 <Fade in={this.state.openModal}>
                     <div className="popUpStyleParent">
-                        <ReactPlayer url={this.props.url} />
+                        <Youtube 
+                          videoId={this.props.url}
+                          opts={opts}
+                        />
                     </div>
                 </Fade>
             </Modal>

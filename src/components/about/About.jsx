@@ -24,7 +24,7 @@ class About extends React.Component {
             Hey! I'm Victor
           </h1>
           <h3> 
-            Stanford CS  |  Venezuelan  |  Founder at Tabtab
+            Stanford CS  |  Venezuelan 
           </h3>
 
           <div className="mainTextAbout">
