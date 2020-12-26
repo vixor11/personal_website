@@ -16,7 +16,7 @@ class Portfolio extends React.Component {
     return (
     <div className="">
         <h1 className="portfolio-largeHello">
-          Hello.
+          Goodbye.
         </h1>
         <div className="portfolio-subheader">
           I'm Victor Cardenas, a Stanford CS Student from Caracas, Venezuela.
