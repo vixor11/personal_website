@@ -18,6 +18,8 @@ class About extends React.Component {
 
 
   render() {
+    console.log(21);
+    
     return (
       <div id="mainHeader" className="" >
           <h1>
@@ -28,6 +30,11 @@ class About extends React.Component {
           </h3>
 
           <div className="mainTextAbout">
+          <div>
+              <strong>About</strong>
+                <br/>
+                I don't update this portion of my personal site too regularly, so whatever is one here is probably just a summary of what I was up to in July of 2020.
+              </div>
             <div>
               <strong>Stanford Classes</strong>
               <br/>

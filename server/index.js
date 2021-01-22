@@ -16,20 +16,23 @@ app.use(bodyParser.json())
 
 var session = require('express-session')
 app.use(express.static(__dirname));
+const MongoStore = require('connect-mongo')(session);
+const sessionStore = new MongoStore({
+    mongooseConnection: db,
+    collections: 'sessions'
+})
+
 app.use(session({
     secret: 'secretKey', 
-    cookie: { maxAge: 1296000000 },
+    cookie: { maxAge: 24*60*60*1000 },
     resave: false, 
-    saveUninitialized: false,
+    store: sessionStore,
+    saveUninitialized: true,
     // cookie: { secure: true }
 }));
 
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
-
-// app.get('/', (req, res) => {
-//     res.send('Hello World!')
-// })
 
 app.use('/api', articleRouter)
 app.use('/api/user', userRouter)

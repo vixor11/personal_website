@@ -57,6 +57,11 @@ class Header extends React.Component {
                 Portfolio
               </MenuItem>
             </Link>
+            <Link to="/blog" className="menuTopBar" onClick={this.handleCloseBurger}>
+              <MenuItem className="menuTopBar">
+                Blog
+              </MenuItem>
+            </Link>
           </Menu>
         </div>
 

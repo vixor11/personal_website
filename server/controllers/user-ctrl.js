@@ -6,7 +6,7 @@ const saltRounds = 10;
 
 logUserIn = async (req, res) => {
     const body = req.body;
-    console.log(req.session);
+    console.log(body);
 
     if (!body) {
         return res.status(400).json({
@@ -31,32 +31,43 @@ logUserIn = async (req, res) => {
                 req.session.login_name = user.login_name;
                 return res.status(201).json({
                     success: true,
+                    isLoggedIn: true,
                     user_login: user.login_name,
                     user_id: user._id,
                     message: 'User created!',
                 })
             }).catch(error => {
                 return res.status(400).json({
-                    error,
-                    message: 'User not created!',
+                    isLoggedIn: false,
+                    message: 'User not created!'
                 })
             })
         });
     } else {
-        let user = (await User.findOne( {login_name: body.login_name} ));        
+        let user = (await User.findOne( {login_name: body.login_name} ));      
+        
+        if (!user) {
+            console.log(50);
+            
+            return res
+                .status(400)
+                .json({ success: false, isLoggedIn: false, error: `fuck off 1.5` })
+        }
 
         bcrypt.compare(body.pwd, user.hash, function(err, result) {
-            console.log(48 + ", " + result);
+            console.log(58 + ", " + result);
             
             if (result === true) {
                 req.session.login_name = user.login_name;
+                console.log(req.session);
+
                 return res
-                .status(201)
-                .json({ success: true })
+                .status(200)
+                .json({ success: true, isLoggedIn: true })
             } else {
                 return res
-                .status(404)
-                .json({ success: false, error: `fuck off 2` })
+                .status(400)
+                .json({ success: false, isLoggedIn: false, error: `fuck off 2` })
             }
         });
     }
@@ -76,13 +87,36 @@ logUserOut = (req, res) => {
         } 
         console.log(req.session);
 
-        res.json({ logOut: "success" });
+        res.json({ logOut: "success", isLoggedIn: false });
     })
+}
+
+checkLoggedIn = async (req, res) => {
+    console.log(req.session.login_name);
+    
+    if (!req.session.login_name) {
+        res.status(401).json( { success: false, isLoggedIn: false } );
+        return;
+    } 
+    
+    let user = await User.findOne({ login_name: req.session.login_name}, 'login_name');
+
+    if (!user) {
+        res.status(401).json( { success: false, isLoggedIn: false } );
+        return;
+    } 
+
+    return res.status(200).json( { 
+        success: true,
+        isLoggedIn: true
+    });
+    
 }
 
 
 
 module.exports = {
     logUserIn,
+    checkLoggedIn,
     logUserOut
 }

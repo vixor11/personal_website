@@ -1,0 +1,38 @@
+.mainForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainForm > * {
+    margin: 1em;
+}
+
+#loginPapi {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    text-align: center;
+}
+
+.errorMessage {
+    color: red;
+}
+
+.displayHorizontally {
+    display: flex;
+    flex-direction: row;
+}
+
+.displayHorizontallyWrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.button {
+    max-height: 60px;
+    margin-bottom: 0;
+}

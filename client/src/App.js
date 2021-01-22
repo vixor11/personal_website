@@ -4,24 +4,31 @@ import './App.css';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import About from './components/about/About';
+import Blog from './components/blog/Blog';
+import Admin from './components/admin/Admin';
+
+// import Admin from './components/admin/Admin';
 
 import {
-  HashRouter, Route, Switch, Redirect
+  BrowserRouter, Route, Switch, Redirect
 } from 'react-router-dom';
-// don't forget the styles
+
 
 function App() {
+  
   return (
     <div className="App">
-      <HashRouter>
+      <BrowserRouter>
         <Header />
         <Switch>
-          <Redirect path="/" exact to="/portfolio"/> 
+          <Redirect path="/" exact to="/about"/> 
           <Route path="/portfolio" component={Portfolio}/> 
           <Route path="/about" component={About}/>
+          <Route path="/blog" component={Blog}/>
+          <Route path="/admin" component={Admin}/>
         </Switch>
         <Footer />
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }

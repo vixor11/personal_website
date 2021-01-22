@@ -1,7 +1,7 @@
 import React from 'react';
 import './Portfolio.css';
 import '../../index.css';
-import GridElement from '..//gridElement/gridElement';
+import GridElement from '../gridElement/gridElement';
 
 // images to import
 import photoShare from '../../images/photoShare.jpg';
@@ -16,7 +16,7 @@ class Portfolio extends React.Component {
     return (
     <div className="">
         <h1 className="portfolio-largeHello">
-          Goodbye.
+          Hello.
         </h1>
         <div className="portfolio-subheader">
           I'm Victor Cardenas, a Stanford CS Student from Caracas, Venezuela.
@@ -46,7 +46,7 @@ class Portfolio extends React.Component {
               url="Hbj1wDQZoKY"
               title={"TabTab: Share More, Pay Less"}
               date={"March/April 2020. "}
-              description={"Splitting recurring payments is a pain. Tabtab enables anyone to safely split the cost of subscription services, rent, and more. Built this with my two quarantine buddies: Santiago Hernandez and Tomas Cortes"}
+              description={"Built using no-code tool Bubble. Splitting recurring payments is a pain. Tabtab enables anyone to safely split the cost of subscription services, rent, and more. Built this with my two quarantine buddies: Santiago Hernandez and Tomas Cortes"}
             />
           </div>
           <div >
@@ -55,7 +55,7 @@ class Portfolio extends React.Component {
               external={"http://debatevenezuela.org/"}
               title={"English Debate Association of Venezuela"}
               date={"July/August 2018. "}
-              description={"Static website built for the national debate organization I founded in high school, edav."}
+              description={"CURRENTLY DOWN. Static website built for the national debate organization I founded in high school, edav."}
             />
           </div>
           <div >
