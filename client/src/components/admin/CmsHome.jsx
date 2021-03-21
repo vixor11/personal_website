@@ -1,11 +1,7 @@
-import React from 'react';
-import './Login.css';
+import React from "react";
+import "./Login.css";
 
-import {
-   TextField, Button
-} from '@material-ui/core';
-import fetch from 'node-fetch';
-
+import fetch from "node-fetch";
 
 class LoginRegister extends React.Component {
   constructor(props) {
@@ -14,21 +10,26 @@ class LoginRegister extends React.Component {
       articles: null,
     };
 
-    fetch('http://localhost:3000/api/articles', {
-        method: "GET"
-      })
-        .then(res => res.json())
-        .then((json) => {
-            this.setState({articles: json});
-        })
-
+    fetch(`${process.env["CURRENT_URL"]}/articles`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState({ articles: json });
+      });
   }
 
   render() {
-
     return (
       <div id="loginPapi">
-        ah
+        {this.state.articles.data.map((article) => (
+          <>
+            <div>{article.title}</div>
+            <div>{article.date_time_published}</div>
+
+            <div>{article.main_text}</div>
+          </>
+        ))}
       </div>
     );
   }

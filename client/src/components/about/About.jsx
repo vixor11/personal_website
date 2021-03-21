@@ -6,6 +6,9 @@ import starupIdeas from "../../images/startupIdeas.pdf";
 // don't forget the styles
 import "@animated-burgers/burger-slip/dist/styles.css";
 
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
+
 class About extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +21,8 @@ class About extends React.Component {
   render() {
     return (
       <div id="mainHeader" className="">
+        <Header />
+
         <h1>Hey! I'm Victor</h1>
         <h3>Stanford CS | Venezuelan</h3>
 
@@ -166,6 +171,7 @@ class About extends React.Component {
             .
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

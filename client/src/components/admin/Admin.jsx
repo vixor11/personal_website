@@ -1,54 +1,60 @@
-import React from 'react';
-import Login from './Login';
-import CmsHome from './CmsHome';
+import React, { useState, useEffect } from "react";
+import Login from "./Login";
+import CmsHome from "./CmsHome";
+import config from "../../config";
 
-import {
-    BrowserRouter, Route, Switch, Redirect
-  } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
 
+export default function LoginRegister() {
+  const data = {
+    login_name: localStorage.getItem("login_name"),
+    pwd: localStorage.getItem("pwd"),
+  };
 
-class LoginRegister extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        isLoggedIn: false
-      };
+  const [isLoggedIn, setLoginState] = useState();
 
-    fetch('http://localhost:3000/api/user/checkLoggedIn', {
-        method: "GET"
-      })
-        .then(res => res.json())
-        .then((json) => {
-          console.log("after check endpoing: " + json);
-          
-            if(json === true) {
-                this.setState({isLoggedIn: json.isLoggedIn});
-            }
-        })
-    
+  useEffect(() => {
+    console.log(`use effect is running: ${process.env.CURRENT_URL}`);
+
+    fetch(`${config.CURRENT_URL}/user/checkLoggedIn`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    }).then((res) => {
+      console.log("fetch finishes running: " + res.isLoggedIn);
+
+      setLoginState(res.isLoggedIn);
+    });
+  }, []);
+
+  function handleLogin(loginStatus) {
+    setLoginState(loginStatus);
   }
 
-  handleLogin = (loginStatus) => {      
-    this.setState({isLoggedIn: loginStatus});
-  }
-
-  render() {
-      console.log(this.state.isLoggedIn);
-      
-
-    return (
-      <div id="loginPapi">
-        <Switch>
-            <Route 
-                path="/admin"
-                render = { props => <Login {...props}
-                isLoggedIn={this.state.isLoggedIn}
-                handleLogin={this.handleLogin}/> }
-            />
-        </Switch>
-      </div>
-    );
-  }
+  return (
+    <div id="loginPapi">
+      <Switch>
+        <Route
+          path="/admin"
+          render={
+            isLoggedIn
+              ? (props) => (
+                  <CmsHome
+                    {...props}
+                    isLoggedIn={isLoggedIn}
+                    handleLogin={handleLogin}
+                  />
+                )
+              : (props) => (
+                  <Login
+                    {...props}
+                    isLoggedIn={isLoggedIn}
+                    handleLogin={handleLogin}
+                  />
+                )
+          }
+        />
+      </Switch>
+    </div>
+  );
 }
-
-export default LoginRegister;
